@@ -43,6 +43,8 @@ auth:
         authorizationUrl: ${AUTH_OPENSHIFT_AUTHORIZATION_URL}
         tokenUrl: ${AUTH_OPENSHIFT_TOKEN_URL}
         openshiftApiServerUrl: ${OPENSHIFT_API_SERVER_URL}
+        ## uncomment to set lifespan of user session, most likely to be one day
+        # sessionDuration: 1d
 ```
 
 The OpenShift provider is a structure with these configuration keys:
@@ -52,6 +54,9 @@ The OpenShift provider is a structure with these configuration keys:
 - `authorizationUrl`: The OpenShift OAuth client auth endpoint, format: `https://<oauth-client-route>/oauth/authorize`.
 - `tokenUrl`: The OpenShift OAuth client token endpoint, format: `https://<oauth-client-route>/oauth/token`.
 - `openshiftApiServerUrl`: The OpenShift API server endpoint, format: `https://<openshift-api>`.
+- `sessionDuration`: (optional): Lifespan of the user session.
+
+The provider needs to use the scope **user:full**.
 
 ## Backend Installation
 
